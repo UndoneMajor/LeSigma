@@ -1,27 +1,47 @@
-import React from 'react'
-import dealsImg from '../assets/deals.png'
+import React from 'react';
+import deals from '../assets/deals.png';
 
-export default function Deals() {
+const Deals = () => {
+  const timeValues = [
+    { value: '14', label: 'Days' },
+    { value: '20', label: 'Hours' },
+    { value: '15', label: 'Mins' },
+    { value: '05', label: 'Secs' }
+  ];
+
   return (
-    <section className="bg-[#f4e5ec] rounded-xl max-w-screen-xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
-      <div className="relative flex justify-center">
-        <img src={dealsImg} alt="Deals" className="max-w-md w-full object-contain -translate-y-8" />
-      </div>
-      <div className="space-sy-6 max-w-xl">
-        <h5 className="text-[#ed3849] font-medium text-sm uppercase">Get Up To 20% Discount</h5>
-        <h4 className="text-3xl font-extrabold font-serif text-slate-900">Deals Of This Month</h4>
-        <p className="text-slate-500">
-          Our Women's Fashion Deals of the Month are here to make your style dreams a reality without breaking the bank. Discover a curated collection of exquisite clothing, accessories, and footwear.
-        </p>
-        <div className="flex gap-4">
-          {['14 Days', '20 Hours', '15 Mins', '05 Secs'].map((t, i) => (
-            <div key={i} className="w-20 h-20 bg-white rounded-full shadow flex flex-col justify-center items-center text-sm font-semibold text-slate-900">
-              <span className="text-xl font-bold">{t.split(' ')[0]}</span>
-              <span>{t.split(' ')[1]}</span>
+    <div className="container mx-auto px-4 py-16">
+      <div className="bg-[#f4e5ec] rounded-3xl max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center p-8 md:p-12">
+          <div className="md:w-1/2">
+            <img src={deals} alt="Fashion Deals" className="w-full h-auto max-w-md mx-auto" />
+          </div>
+          <div className="md:w-1/2 md:pl-12 mt-8 md:mt-0">
+            <p className="text-red-500 font-medium mb-2">Get Up To 20% Discount</p>
+            <h2 className="text-4xl font-bold mb-4">Deals Of This Month</h2>
+            <p className="text-gray-600 mb-8">
+              Our Women's Fashion Deals of the Month are here to make your style
+              dreams a reality without breaking the bank. Discover a curated collection
+              of exquisite clothing, accessories, and footwear, all handpicked to elevate
+              your wardrobe.
+            </p>
+            <div className="flex space-x-6 justify-center md:justify-start">
+              {timeValues.map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="bg-white rounded-full w-16 md:w-20 h-16 md:h-20 flex items-center justify-center shadow-sm">
+                    <div>
+                      <div className="text-xl md:text-2xl font-bold">{item.value}</div>
+                      <div className="text-xs md:text-sm">{item.label}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
+
+export default Deals;
